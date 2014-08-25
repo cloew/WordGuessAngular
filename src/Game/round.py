@@ -1,11 +1,11 @@
 from guess_results import GuessResults
-from words import GetWordsFor
+from words import GetWordsFor, GetStartingLength
 import random
 
 class Round:
     """ Represents a Round of the Game """
     
-    def __init__(self, wordLength):
+    def __init__(self, wordLength=GetStartingLength()):
         """ Initialize the Round """
         self.wordLength = wordLength
         self.wordToGuess = self.pickWord()
