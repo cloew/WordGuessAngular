@@ -2,7 +2,7 @@
     .centered {
         margin-left: auto;
         margin-right: auto;
-        width: 200px;
+        width: 600px;
     }
     .kaotable {
         height: 100%;
@@ -12,13 +12,16 @@
     .kaocell {
         display:table-cell;
         vertical-align:middle;
+        width: 200px;
     }
 </style>
 
 <div class="centered kaotable">
     <div class="kaocell">
-        <h1>Id: {{game.id}}</h1>
-        <h2>Length: {{game.wordLength}}</h2>
-        <h2>Points: {{game.points}}</h2>
+        <div style="width:200px;display:inline;">
+            <p ng-repeat="result in results track by $index">{{result}}</p>
+        </div>
+        <input maxlength="{{game.wordLength}}" ng-model="guessString" ng-change="setGuess(guessString);" />
+        <button ng-click="guess()">Guess</button>
     </div>
 </div>

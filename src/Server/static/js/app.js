@@ -17,4 +17,9 @@ angular.module('WordGuess', ['ngRoute', 'WordGuessControllers'])
 		})
 		;
 	}])
-;
+    .directive('guessInput', function() {
+      return {
+          restrict: 'E',
+          replace: 'true',
+          template: '<input style="width: 15px;" ng-model="guess.guess"></input>'
+      }});
