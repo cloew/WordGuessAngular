@@ -13,4 +13,5 @@ class GameWrapper:
         """ Return the game as a JSON Dictionary """
         return {'game':{'id':self.game.id,
                         'wordlength':self.game.currentRound.wordLength,
-                        'triesleft':self.game.currentRound.triesLeft}}
+                        'triesleft':self.game.currentRound.triesLeft,
+                        'roundcomplete':self.game.currentRound.completed}}
