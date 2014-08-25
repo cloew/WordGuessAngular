@@ -1,6 +1,6 @@
 from points import points
 from round import Round
-from words import HasNextLength
+from words import HasNextLength, GetNextLength
 
 class Game:
     """ Represents a Word Guess Game """
@@ -16,6 +16,11 @@ class Game:
         results = self.currentRound.guess(guesses)
         self.awardPoints()
         return results
+        
+    def startNextRound(self):
+        """ Start the Next Round """
+        nextWordLength = GetNextLength(self.currentRound.wordLength)
+        self.currentRound = Round(wordLength=nextWordLength)
         
     def awardPoints(self):
         """ Award Poitns if the Round was finished """

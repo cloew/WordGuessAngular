@@ -13,6 +13,10 @@ class GameWrapper:
         """ Return the results of the guess """
         return self.game.guess(guesses)
         
+    def startNextRound(self):
+        """ Start the Next Round """
+        self.game.startNextRound()
+        
     def toJSON(self):
         """ Return the game as a JSON Dictionary """
         return {'game':{'id':self.game.id,
