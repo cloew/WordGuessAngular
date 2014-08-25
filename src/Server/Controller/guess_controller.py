@@ -5,10 +5,9 @@ class GuessController(JSONController):
     """ Controller to allow a player to guess the word for the current Round """
     
     def performWithJSON(self, gameId):
-        wrapper = GameWrapper(id=gameId)
-        game = wrapper.game
+        game = GameWrapper(id=gameId)
         results = game.guess(self.json['guesses'])
         
-        resultJSON = wrapper.toJSON()
+        resultJSON = game.toJSON()
         resultJSON['results'] = results.results
         return resultJSON
