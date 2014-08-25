@@ -3,8 +3,8 @@
 var controllers = angular.module('WordGuessControllers', []);
 
 controllers.controller('StartGameController', function ($scope) {
-    $scope.someMethod = function() {
-        alert("Build Something");
+    $scope.startGame = function() {
+        alert("Starting Game");
     };
 });
 
