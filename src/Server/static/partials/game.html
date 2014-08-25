@@ -19,7 +19,11 @@
 <div class="centered kaotable">
     <div class="kaocell">
         <div style="width:200px;display:inline;">
-            <p ng-repeat="result in results track by $index">{{result}}</p>
+            <div ng-repeat="guess in game.guesses">
+                <div ng-repeat="charGuess in guess.results">
+                    <p>{{charGuess.guess}}: {{charGuess.result}}</p>
+                </div>
+            </div>
         </div>
         <input maxlength="{{game.wordLength}}" ng-model="guessString" ng-change="setGuess(guessString);" />
         <button ng-click="guess()">Guess</button>

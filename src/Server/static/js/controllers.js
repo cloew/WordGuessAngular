@@ -14,8 +14,6 @@ controllers.controller('StartGameController', function ($scope, $http, $location
 });
 
 controllers.controller('GameController', function($scope, $http, $routeParams) {
-    $http.defaults.headers.put["Content-Type"] = "application/json";
-    
     $scope.currentGuess = {'guesses':[]};
     $http.get('/api/'+$routeParams.gameId).success(function(data) {
             $scope.game = data['game'];
@@ -29,7 +27,6 @@ controllers.controller('GameController', function($scope, $http, $routeParams) {
     $scope.guess = function() {
         $http.put('/api/'+$scope.game.id+'/guess', $scope.currentGuess, {headers: {'Content-Type': 'application/json'}}).success(function(data) {
             $scope.game = data['game'];
-            $scope.results = data['results'];
         }).error(function(error) {
             alert(error);
         });
