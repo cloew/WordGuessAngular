@@ -11,6 +11,7 @@ class Round:
         self.wordToGuess = self.pickWord()
         self.triesLeft = 11
         self.completed = False
+        self.guesses = []
         
     def pickWord(self):
         """ Pick a word for the Round """
@@ -20,8 +21,8 @@ class Round:
     def guess(self, guesses):
         """ Return the results of the list of guesses """
         results = GuessResults(self.wordToGuess, guesses)
+        self.guesses.append(results)
         if results.isCorrectGuess():
             self.completed = True
         else:
             self.triesLeft -= 1
-        return results

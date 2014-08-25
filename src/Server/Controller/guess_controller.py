@@ -7,7 +7,4 @@ class GuessController(JSONController):
     def performWithJSON(self, gameId):
         game = GameWrapper(id=gameId)
         results = game.guess(self.json['guesses'])
-        
-        resultJSON = game.toJSON()
-        resultJSON['results'] = results.results
-        return resultJSON
+        return game.toJSON()

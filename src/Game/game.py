@@ -13,16 +13,15 @@ class Game:
         
     def guess(self, guesses):
         """ Return the results of the guess against the current Round """
-        results = self.currentRound.guess(guesses)
-        self.awardPoints()
-        return results
+        self.currentRound.guess(guesses)
+        self.tryToAwardPoints()
         
     def startNextRound(self):
         """ Start the Next Round """
         nextWordLength = GetNextLength(self.currentRound.wordLength)
         self.currentRound = Round(wordLength=nextWordLength)
         
-    def awardPoints(self):
+    def tryToAwardPoints(self):
         """ Award Poitns if the Round was finished """
         if self.currentRound.completed:
             self.points += points[self.currentRound.triesLeft]

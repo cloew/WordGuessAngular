@@ -11,7 +11,7 @@ class GameWrapper:
         
     def guess(self, guesses):
         """ Return the results of the guess """
-        return self.game.guess(guesses)
+        self.game.guess(guesses)
         
     def startNextRound(self):
         """ Start the Next Round """
@@ -19,9 +19,11 @@ class GameWrapper:
         
     def toJSON(self):
         """ Return the game as a JSON Dictionary """
+        guesses = [{'results':[{'guess': charResult.guessChar, 'result':charResult.result} for charResult in result.results]} for result in self.game.currentRound.guesses]
         return {'game':{'id':self.game.id,
                         'points':self.game.points,
                         'wordLength':self.game.currentRound.wordLength,
                         'triesLeft':self.game.currentRound.triesLeft,
                         'roundComplete':self.game.currentRound.completed,
-                        'hasNextRound':self.game.hasNextRound()}}
+                        'hasNextRound':self.game.hasNextRound(),
+                        'guesses':guesses}}
