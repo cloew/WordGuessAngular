@@ -7,3 +7,7 @@ class Game:
         """ Initialize the Game """
         self.id = id
         self.currentRound = Round(2)
+        
+    def guess(self, guesses):
+        """ Return the results of the guess against the current Round """
+        return self.currentRound.guess(guesses)
