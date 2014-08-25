@@ -39,15 +39,15 @@ class GuessResults:
     def validateCharacter(self, targetChar, guessChar, leftChar=None, rightChar=None):
         """ Validate the characters """
         if self.match(targetChar, guessChar):
-            return target
+            return MATCH
             
         resultOptions = {}
-        if WordValidator.up(targetChar, guessChar):
+        if self.up(targetChar, guessChar):
             resultOptions[UP] = self.probabilities[UP]
         else:
             resultOptions[DOWN] = self.probabilities[DOWN]
             
-        if WordValidator.close(targetChar, guessChar):
+        if self.close(targetChar, guessChar):
             resultOptions[CLOSE] = self.probabilities[CLOSE]
         else:
             resultOptions[WRONG] = self.probabilities[WRONG]
@@ -55,7 +55,7 @@ class GuessResults:
         if leftChar and self.close(leftChar, guessChar):
             resultOptions[LEFT] = self.probabilities[LEFT]
         
-        if rightChar and WordValidator.close(rightChar, guessChar):
+        if rightChar and self.close(rightChar, guessChar):
             resultOptions[RIGHT] = self.probabilities[RIGHT]
             
         return self.pickResultOption(resultOptions)

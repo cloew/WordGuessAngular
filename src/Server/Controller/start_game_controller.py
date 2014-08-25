@@ -7,4 +7,4 @@ class StartGameController(JSONController):
     
     def performWithJSON(self):
         game = StartNewGame()
-        return GameWrapper(game).toJSON(), 201
+        return GameWrapper(game=game).toJSON(), 201
