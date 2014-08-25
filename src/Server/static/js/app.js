@@ -8,9 +8,9 @@ angular.module('WordGuess', ['ngRoute', 'WordGuessControllers'])
 			templateUrl: 'static/partials/start_game.html',
 			controller: 'StartGameController'
 		})
-		.when('/about', {
-			templateUrl: 'static/partials/about.html',
-			controller: 'AboutController'
+		.when('/game/:gameId', {
+			templateUrl: 'static/partials/game.html',
+			controller: 'GameController'
 		})
 		.otherwise({
 			redirectTo: '/'
