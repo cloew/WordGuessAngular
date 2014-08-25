@@ -12,6 +12,7 @@ class GameWrapper:
     def toJSON(self):
         """ Return the game as a JSON Dictionary """
         return {'game':{'id':self.game.id,
+                        'points':self.game.points,
                         'wordlength':self.game.currentRound.wordLength,
                         'triesleft':self.game.currentRound.triesLeft,
                         'roundcomplete':self.game.currentRound.completed}}

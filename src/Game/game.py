@@ -1,3 +1,4 @@
+from points import points
 from round import Round
 
 class Game:
@@ -7,7 +8,15 @@ class Game:
         """ Initialize the Game """
         self.id = id
         self.currentRound = Round(2)
+        self.points = 0
         
     def guess(self, guesses):
         """ Return the results of the guess against the current Round """
-        return self.currentRound.guess(guesses)
+        results = self.currentRound.guess(guesses)
+        self.awardPoints()
+        return results
+        
+    def awardPoints(self):
+        """ Award Poitns if the Round was finished """
+        if self.currentRound.completed:
+            self.points += points[self.currentRound.triesLeft]
