@@ -20,4 +20,4 @@ class GuessResults:
         
     def isCorrectGuess(self):
         """ Returns if the entire guess was correct """
-        return len([result for result in self.results if result == MATCH]) > 0
+        return len([result for result in self.results if result.result == MATCH]) > 0

@@ -31,4 +31,12 @@ controllers.controller('GameController', function($scope, $http, $routeParams) {
             alert(error);
         });
     };
+    
+    $scope.nextRound = function() {
+        $http.put('/api/'+$scope.game.id+'/nextround', $scope.currentGuess, {headers: {'Content-Type': 'application/json'}}).success(function(data) {
+            $scope.game = data['game'];
+        }).error(function(error) {
+            alert(error);
+        });
+    };
 });
