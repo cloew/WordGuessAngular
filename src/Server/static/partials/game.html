@@ -21,6 +21,13 @@
     }
 </style>
 
+<div style="float:right">
+    <h2>Round: {{game.wordLength-1}}</h2>
+    <h2>Word Length: {{game.wordLength}}</h2>
+    <h2>Points: {{game.points}}</h2>
+    <h2>Tries Left: {{game.triesLeft}}</h2>
+</div>
+
 <div class="centered kaotable">
     <div class="kaocell">
         <input maxlength="{{game.wordLength}}" ng-model="guessString" ng-change="setGuess(guessString);" />
