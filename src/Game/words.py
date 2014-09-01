@@ -2,7 +2,10 @@
 words = {2:['at',
             'be',
             'to'],
-         3:['two']}
+         3:['two'],
+         4:['four'],
+         5:['three'],
+         6:['beggar']}
 
 sortedKeys = words.keys()
 sortedKeys.sort()
