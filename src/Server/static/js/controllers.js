@@ -18,6 +18,7 @@ controllers.controller('GameController', function($scope, $http, $routeParams) {
     $scope.setGame = function(game) {
         $scope.game = game;
         $scope.game.guesses = $scope.game.guesses.reverse();
+        $scope.canGuess = !$scope.game.roundComplete;
     };
     $http.get('/api/'+$routeParams.gameId).success(function(data) {
             $scope.setGame(data['game']);
